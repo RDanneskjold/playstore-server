@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app"
+    "test": "mocha",
+    "start": "nodemon server",
+    "dev": "nodemon server"
   },
   "repository": {
     "type": "git",
@@ -19,10 +20,14 @@
   },
   "homepage": "https://github.com/RDanneskjold/playstore-server#readme",
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
     "nodemon": "^1.18.11"
   },
   "dependencies": {
+    "chai-sorted": "^0.2.0",
     "express": "^4.16.4",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "supertest": "^4.0.2"
   }
 }
