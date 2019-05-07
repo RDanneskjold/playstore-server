@@ -41,14 +41,15 @@ app.get('/apps', (req, res) => {
                     .includes(genres));
     }
 
-    if (sort) {
-         
-        if(typeof(results[sort]) === 'string') {results.sort((a, b) => {
-            return a[sort].toLowerCase() > b[sort].toLowerCase() ? 
-                1 : a[sort].toLowerCase() < b[sort].toLowerCase() ? -1 : 0;
-        })} else {results.sort((a, b) => {
-            return a[sort] > b[sort] ?
-                1 : a[sort] < b[sort] ? -1 : 0;
+    if (sort && results.length > 1) {
+        
+        if(typeof(results[0][sort]) === 'string') {
+            results.sort((a, b) => {
+                return a[sort].toLowerCase() > b[sort].toLowerCase() ? 
+                    1 : a[sort].toLowerCase() < b[sort].toLowerCase() ? -1 : 0;
+        })} else {
+            results.sort((a, b) => {
+                return a[sort] > b[sort] ? 1 : a[sort] < b[sort] ? -1 : 0;
         })}
     }
     

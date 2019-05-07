@@ -116,99 +116,103 @@ describe('Express App', () => {
         it('should return a sorted array if sort is App and filtered by genre', () => {
             const expectedArray = [
                 {
-                    "App": "Bubble Shooter",
+                    "App": "Helix Jump",
                     "Category": "GAME",
-                    "Rating": 4.5,
-                    "Reviews": "148897",
-                    "Size": "46M",
-                    "Installs": "10,000,000+",
-                    "Type": "Free",
-                    "Price": "0",
-                    "Content Rating": "Everyone",
-                    "Genres": "Casual",
-                    "Last Updated": "July 17, 2018",
-                    "Current Ver": "1.20.1",
-                    "Android Ver": "4.0.3 and up"
-                },
-                {
-                    "App": "Candy Crush Saga",
-                    "Category": "GAME",
-                    "Rating": 4.4,
-                    "Reviews": "22426677",
-                    "Size": "74M",
-                    "Installs": "500,000,000+",
-                    "Type": "Free",
-                    "Price": "0",
-                    "Content Rating": "Everyone",
-                    "Genres": "Casual",
-                    "Last Updated": "July 5, 2018",
-                    "Current Ver": "1.129.0.2",
-                    "Android Ver": "4.1 and up"
-                },
-                {
-                    "App": "Candy Crush Soda Saga",
-                    "Category": "GAME",
-                    "Rating": 4.4,
-                    "Reviews": "6198563",
-                    "Size": "67M",
+                    "Rating": 4.2,
+                    "Reviews": "1497361",
+                    "Size": "33M",
                     "Installs": "100,000,000+",
                     "Type": "Free",
                     "Price": "0",
                     "Content Rating": "Everyone",
-                    "Genres": "Casual",
-                    "Last Updated": "July 10, 2018",
-                    "Current Ver": "1.118.4",
+                    "Genres": "Action",
+                    "Last Updated": "April 9, 2018",
+                    "Current Ver": "1.0.6",
                     "Android Ver": "4.1 and up"
                 },
                 {
-                    "App": "Hello Kitty Nail Salon",
+                    "App": "Kick the Buddy",
                     "Category": "GAME",
-                    "Rating": 4.2,
-                    "Reviews": "369203",
-                    "Size": "24M",
+                    "Rating": 4.3,
+                    "Reviews": "1000417",
+                    "Size": "Varies with device",
                     "Installs": "50,000,000+",
                     "Type": "Free",
                     "Price": "0",
-                    "Content Rating": "Everyone",
-                    "Genres": "Casual;Pretend Play",
-                    "Last Updated": "April 17, 2018",
-                    "Current Ver": "1.5",
+                    "Content Rating": "Teen",
+                    "Genres": "Action",
+                    "Last Updated": "July 5, 2018",
+                    "Current Ver": "Varies with device",
+                    "Android Ver": "4.4 and up"
+                },
+                {
+                    "App": "ROBLOX",
+                    "Category": "GAME",
+                    "Rating": 4.5,
+                    "Reviews": "4447388",
+                    "Size": "67M",
+                    "Installs": "100,000,000+",
+                    "Type": "Free",
+                    "Price": "0",
+                    "Content Rating": "Everyone 10+",
+                    "Genres": "Adventure;Action & Adventure",
+                    "Last Updated": "July 31, 2018",
+                    "Current Ver": "2.347.225742",
                     "Android Ver": "4.1 and up"
                 },
                 {
-                    "App": "Pou",
+                    "App": "slither.io",
+                    "Category": "GAME",
+                    "Rating": 4.4,
+                    "Reviews": "5234162",
+                    "Size": "Varies with device",
+                    "Installs": "100,000,000+",
+                    "Type": "Free",
+                    "Price": "0",
+                    "Content Rating": "Everyone",
+                    "Genres": "Action",
+                    "Last Updated": "November 14, 2017",
+                    "Current Ver": "Varies with device",
+                    "Android Ver": "2.3 and up"
+                },
+                {
+                    "App": "Temple Run 2",
                     "Category": "GAME",
                     "Rating": 4.3,
-                    "Reviews": "10485308",
-                    "Size": "24M",
+                    "Reviews": "8118609",
+                    "Size": "62M",
                     "Installs": "500,000,000+",
                     "Type": "Free",
                     "Price": "0",
                     "Content Rating": "Everyone",
-                    "Genres": "Casual",
-                    "Last Updated": "May 25, 2018",
-                    "Current Ver": "1.4.77",
+                    "Genres": "Action",
+                    "Last Updated": "July 5, 2018",
+                    "Current Ver": "1.49.1",
                     "Android Ver": "4.0 and up"
+                },
+                {
+                    "App": "Zombie Hunter King",
+                    "Category": "GAME",
+                    "Rating": 4.3,
+                    "Reviews": "10306",
+                    "Size": "50M",
+                    "Installs": "1,000,000+",
+                    "Type": "Free",
+                    "Price": "0",
+                    "Content Rating": "Mature 17+",
+                    "Genres": "Action",
+                    "Last Updated": "August 1, 2018",
+                    "Current Ver": "1.0.8",
+                    "Android Ver": "2.3 and up"
                 }
             ]
             
             return request(app)
                 .get('/apps')
-                .query({ sort: 'App', genres: 'Casual' })
+                .query({ sort: 'App', genres: 'Action' })
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.sortedBy('App')
                     expect(res.body).to.eql(expectedArray)
-                })
-        })
-
-        it.skip('should load and return an array', () => {
-            return request(app)
-                .get('/apps')
-                .expect(200)
-                .then(res => {
-                    expect(res.body).to.be.an('array')
-                    expect(res.body).to.have.lengthOf.at.least(1)
                 })
         })
     })
